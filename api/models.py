@@ -11,14 +11,14 @@ class Users(models.Model):
 class Task(models.Model):
 
     STATUS_CHOICES = [
-        ('Created', 'Created'),
-        ('Progress', 'In Progress'),
-        ('Done', 'Done')
+        ('Criado', 'Criado'),
+        ('Pendente', 'Pendente'),
+        ('Feito', 'Feito')
     ]
 
     description = models.CharField(max_length=250)
-    status = models.CharField(choices=STATUS_CHOICES, default='Created', max_length=20)
-    user = models.ForeignKey(Users, on_delete=models.CASCADE)
+    status = models.CharField(choices=STATUS_CHOICES, default='Criado', max_length=20)
+    user_id = models.ForeignKey(Users, on_delete=models.CASCADE)
 
     def __str__(self):
-        return "%s %s %s" % (self.description, self.status, self.user)
+        return self.description, self.status, self.user_id
