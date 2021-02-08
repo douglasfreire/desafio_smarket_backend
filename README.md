@@ -50,6 +50,7 @@ Quando o sistema estiver rodando acesse através da interface Django rest Framew
 http://127.0.0.1:8000/api/ e existirá dois endpoints diponíveis
 
 No endpoint ``` " /api/user/ " ``` poderá fazer as operações CRUD relacionados aos usuários
+
 No endpoint ``` " /api/task/ " ``` poderá fazer as operações CRUD relacionados as tarefas
 
 Para criar as tarefas é necessário criar um usuário antes.
@@ -83,7 +84,14 @@ no [POST] é necessário enviar na requisição um JSON:
 ```
 {
 	"description":"",
-	"status": "Criado",
+	"user_id":1
+}
+```
+No [PUT / [PATCH] é necessário enviar na requisição um JSON com o campo status:
+```
+{
+	"description":"",
+	"status": "Pendente"
 	"user_id":1
 }
 ```
